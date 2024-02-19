@@ -1,0 +1,40 @@
+version: "3.9"
+
+networks:
+  mysql-phpmyadmin:
+    name: mysql-phpmyadmin
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: serveur_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Greta92
+      MYSQL_DATABASE: marketlev
+      MYSQL_USER: php
+      MYSQL_PASSWORD: php
+    ports:
+      - "3307:3306"
+    networks:
+      - mysql-phpmyadmin
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: serveur_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8888:80"
+    networks:
+      - mysql-phpmyadmin
+    restart: always
+    volumes:
+      - ./marketlev:/var/www/html/projet
+      
+volumes:
+  mysql-data:
