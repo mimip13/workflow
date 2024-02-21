@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the code
-    - name: Checkout repository
+    # Checkout du repository
+    - name: Checkout du repository
       uses: actions/checkout@v2
       
-    # Setup PHP, extensions, and Composer
-    - name: Setup PHP, extensions, and Composer
+    # Setup du PHP, des extensions et de Composer
+    - name: Setup du PHP, des extensions et de Composer
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
@@ -24,20 +24,19 @@ jobs:
       env:
         update: true
           
-    # Install Composer dependencies
-    - name: Composer Install
+    # Installation des dépendeces de Composer
+    - name: Installation des dépendeces de Composer
       working-directory: ./marketlev
       run: composer install
 
-    # Build and run Docker containers
-    - name: Build and run Docker containers
+    # Build et run du Docker containers
+    - name: Build et run du Docker containers
       working-directory: ./marketlev
       run: |
         docker-compose up --build -d
 
-    # Deploy (if needed)
-    - name: Deploy
+    # Deployement
+    - name: Deployement
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./output
