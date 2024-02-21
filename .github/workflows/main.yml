@@ -34,13 +34,6 @@ jobs:
       working-directory: ./marketlev
       run: |
         docker-compose up --build -d
-
-    # Debugging steps
-    - name: Debug GitHub Token
-      run: echo ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Debug Repository URL
-      run: echo "https://github.com/mimip13/workflow.git"
       
     # Deployement
     - name: Deployement
