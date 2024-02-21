@@ -19,25 +19,25 @@ jobs:
     - name: Setup du PHP, des extensions et de Composer
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-versions }}
+        php-version: 7.4
         extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, iconv, json, mbstring, pdo
       env:
         update: true
           
-    # Installation des dépendeces de Composer
-    - name: Installation des dépendeces de Composer
-      working-directory: ./marketlev
+    # Installation des dépendances de Composer
+    - name: Installation des dépendances de Composer
       run: composer install
+      working-directory: ./marketlev
 
     # Build et run du Docker containers
     - name: Build et run du Docker containers
-      working-directory: ./marketlev
       run: |
         docker-compose up --build -d
-      
-    # Deployement
-    - name: Deployement
+      working-directory: ./marketlev
+
+    # Déploiement
+    - name: Déploiement
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.PATH }}
+        github_token: ${{secrets.PATH}}
         publish_dir: ./output
