@@ -1,0 +1,39 @@
+name: Gestion de contenu d'un site php, utilisant Mysql DB sur Docker et Ubuntu
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    #mise en p^lace du chemin du flow sur GitHubACtion
+      - name: Checkout du flow
+        uses: actions/checkout@v2
+        
+      # https://github.com/shivammathur/setup-php (community)
+      - name: Setup PHP, extensions et composer with shivammathur/setup-php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, iconv, json, mbstring, pdo
+        env:
+          update: true
+          
+      - name : Composer Install
+        run: composer install
+
+      - name: Run du Dockerfile
+        working-directory: ./projetdevopssimple
+        run: |
+          docker build -t my_phpmyadmin_image -f Dockerfile .
+          docker run -d -p 8080:80 my_phpmyadmin_image
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
