@@ -35,10 +35,16 @@ jobs:
       run: |
         docker-compose up --build -d
 
+    # Debugging steps
+    - name: Debug GitHub Token
+      run: echo ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Debug Repository URL
+      run: echo "https://github.com/mimip13/workflow.git"
+      
     # Deployement
     - name: Deployement
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-        publish_branch: gh-pages-test
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./output
