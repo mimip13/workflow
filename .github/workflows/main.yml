@@ -19,7 +19,7 @@ jobs:
     - name: Setup du PHP, des extensions et de Composer
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-versions }}
+        php-version: 8.2
         extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, iconv, json, mbstring, pdo
       env:
         update: true
