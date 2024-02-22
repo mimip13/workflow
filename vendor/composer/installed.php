@@ -3,7 +3,7 @@
         'name' => 'heeralall/marketlev',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '288259b005564a7f3337482a12d1698c9c090c9d',
+        'reference' => '26476a0a464a90c993ad6067a2c734e2491ce42e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'heeralall/marketlev' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '288259b005564a7f3337482a12d1698c9c090c9d',
+            'reference' => '26476a0a464a90c993ad6067a2c734e2491ce42e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
