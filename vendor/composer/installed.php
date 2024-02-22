@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'heeralall/marketlev',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '26476a0a464a90c993ad6067a2c734e2491ce42e',
+        'pretty_version' => 'dev-378618d60fdaea6cafe337cfafded891bc32afe5',
+        'version' => 'dev-378618d60fdaea6cafe337cfafded891bc32afe5',
+        'reference' => '378618d60fdaea6cafe337cfafded891bc32afe5',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'heeralall/marketlev' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '26476a0a464a90c993ad6067a2c734e2491ce42e',
+            'pretty_version' => 'dev-378618d60fdaea6cafe337cfafded891bc32afe5',
+            'version' => 'dev-378618d60fdaea6cafe337cfafded891bc32afe5',
+            'reference' => '378618d60fdaea6cafe337cfafded891bc32afe5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
