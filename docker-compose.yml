@@ -23,6 +23,9 @@ services:
       - mysql-data:/var/lib/mysql
 
   phpmyadmin:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: phpmyadmin:latest
     container_name: serveur_phpmyadmin
     environment:
